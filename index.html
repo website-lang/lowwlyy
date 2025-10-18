@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+    background: 
+              url('asset/photo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    }
+    header, section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header {
+      background-size: cover; /* biar gambar menyesuaikan ukuran header */
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      border-radius: 0 0 50px 50px; /* opsional: biar bawahnya agak melengkung */
+    }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 9px;
+      font-weight: 900;
+    }
+    header img {
+      width:250px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: 25px;
+      margin: 30px 0 20px;
+      color: #363200;
+      font-weight: 900;
+      
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgb(26, 27, 11);
+      padding: 20px;
+      max-width: 300px;
+      text-align: left;
+    }
+    .card h3 {
+      margin-bottom: 10px;
+      color: #000000;
+    }
+    .highlight {
+      color: #f13bc0;
+      font-weight: bold;
+    }
+     .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .step {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .step img {
+      width: 40px;
+      height: 40px;
+    }
+    .testimonial-img {
+      width: 20%;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    @keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+.testimonial-slider {
+  width: 50%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+.faq {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 10px;
+}
+.faq-item {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+#countdown {
+  background: #fff3f3;
+  padding: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 15px 20px;
+  text-align: left;
+  background: #ffffff;
+  color: black;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.faq-question:hover {
+  background: #ff85c5;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background: #fff;
+  padding: 0 20px;
+  transition: max-height 0.4s ease;
+  
+}
+.faq-answer p {
+  margin: 15px 0;
+}
+.faq-item.active .faq-answer {
+  max-height: 5000px; /* cukup untuk beberapa paragraf */
+}
+
+.slides img {
+  min-width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.wa-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+   background-color: #25D366;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+  animation: pulse 1.5s infinite;
+  transition: 0.3s;
+}
+
+.wa-button:hover {
+  background-color: #a0522d; /* coklat tua saat hover */
+  transform: scale(1.05);
+}
+
+.wa-button i {
+  font-size: 1.5rem;
+  color: white;
+}
+.wa-button::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  right: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+
+.wa-button:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Efek animasi */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+img[src="asset/remove.png"] {
+  width: 300px;      /* ukuran lebar baru */
+  height: auto;      /* supaya proporsi tetap */
+}
+.testimonial-slider {
+  width: 85%;       /* agar slider semaksimal mungkin di kontainer */
+  overflow: hidden;  /* sembunyikan bagian gambar yang keluar */
+}
+
+.testimonial-slider .slides {
+  display: flex;
+  /* Atur agar gambar bisa berpindah-pindah bila slider aktif */
+}
+
+.testimonial-slider .slides img {
+  flex-shrink: 0;   /* agar gambar tidak mengecil dari ukuran aslinya */
+  width: 100px;     /* ukuran tetap tiap gambar dalam slider */
+  height: auto;
+  margin-right: 0px; /* jarak antar gambar */
+}
+.steps-container {
+  display: flex;
+  flex-wrap: wrap;   /* agar otomatis baris jika sempit */
+  gap: 20px;          /* jarak antar langkah */
+  justify-content: center;
+}
+
+.step {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.step img {
+  max-width: 100px;  /* ukuran maksimal */
+  height: auto;
+  display: block;
+  margin: 0 auto 8px; /* tengah + jarak ke teks */
+}
+
+/* Efek hover: naik sedikit + bayangan */
+.step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.card h3 {
+  text-align: center;
+}
+.benefits-list {
+  max-width: 600px;
+  margin: 0 auto;         /* agar daftar berada di tengah kontainer tetapi isinya tetap rata kiri */
+  padding-left: 1em;      /* memberi jarak dari sisi kiri */
+  text-align: left;       /* pastikan teks rata kiri */
+}
+
+.benefits-list li {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+.fasilitas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;              /* jarak antar gambar */
+  padding: 10px;          /* jarak dari tepi container */
+}
+.fasilitas img {
+  width: 100%;
+  border-radius: 10px;
+}
+.testimoni {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f9f9f9;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.testimoni h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: bold;
+}
+
+.testimoni-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Selalu 2 kolom */
+  gap: 15px;
+  justify-items: center;
+}
+
+.testimoni .item {
+  width: 100%;
+}
+
+.testimoni img,
+.testimoni video {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+.testimoni p {
+  font-size: 16px;
+  color: #555;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Biar tetap rapi di HP */
+@media (max-width: 480px) {
+  .testimoni img,
+  .testimoni video {
+    max-height: 200px;
+  }
+}
+.cta-button {
+  text-align: center;
+  margin: 30px 0;
+}
+.btn-join {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #ff85c2, #ffb6c1); /* gradient sesuai request */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background 0.3s;
+}
+
+.btn-join:hover {
+  background: linear-gradient(45deg, #ffb6c1, #ff85c2); /* efek hover kebalikan gradient */
+}
+
+.btn {
+  display: inline-block;
+  background: #ffffff;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 15px 80px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #ff85c2, #ffb6c1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.6);
+}
+.payment-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fff8f0;
+  border-radius: 15px;
+  margin: 0 auto;
+  max-width: 800px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.section-title {
+  color: black;
+  margin-bottom: 15px;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* selalu 2 kolom */
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.payment-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+}
+
+.payment-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.payment-item img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.payment-item p {
+  margin: 0;
+  font-weight: bold;
+  color: black;
+}
+
+@media (max-width: 400px) {
+  .payment-item img {
+    width: 60px;
+  }
+}
+.alasan-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.alasan-section h2 {
+  font-size: 25px;
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 900;
+}
+
+.alasan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.alasan-item {
+  background: #f9f9f9;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.alasan-item:hover {
+  transform: translateY(-5px);
+}
+
+.alasan-item h4 {
+  color: black;
+  margin-bottom: 10px;
+}
+
+/* --- RESPONSIVE UNTUK HP --- */
+@media (max-width: 768px) {
+  .alasan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .alasan-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.alasan-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .alasan-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+.cara-join-flow {
+  max-width: 100%;
+  overflow-x: hidden; /* mencegah lebihan horizontal */
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+.cara-join-flow h2 {
+  font-size: 25px;
+  margin-bottom: 50px;
+  color: #333;
+  font-weight: 700;
+}
+
+.flow-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Baris horizontal */
+.flow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* Balik arah baris */
+.flow-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Kotak langkah */
+.flow-step {
+  background: #f9f9f9;
+  border-radius: 15px;
+  padding: 20px 25px;
+  width: 220px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.flow-step:hover {
+  background: #0d6efd;
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+.icon {
+  background: #0d6efd;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 10px;
+}
+/* Responsif */
+@media (max-width: 768px) {
+  .flow-row {
+    flex-direction: column;
+  }
+  .arrow, .down-arrow {
+    display: none;
+  }
+}
+.wajib-diper {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.wajib-diper h2 {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* Grid dua kolom */
+.wajib-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mbuh {
+  background: #fff;
+  border-left: 6px solid #e11d48;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: relative;
+  text-align: left;
+  transition: 0.3s ease;
+}
+
+.mbuh:hover {
+  transform: translateY(-5px);
+  background: #fff0f3;
+}
+
+.con {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  background: #e11d48;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.mbuh p {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Tetap 2 kolom di HP */
+@media (max-width: 480px) {
+  .wajib-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .mbuh {
+    padding: 15px;
+  }
+
+  .mbuh p {
+    font-size: 0.9rem;
+  }
+}.faq-timeline {
+  padding: 60px 20px;
+  position: relative;
+  text-align: center;
+}
+
+.faq-timeline h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.faq-subtitle {
+  color: #6b7280;
+  font-size: 1rem;
+  margin-bottom: 50px;
+}
+
+/* Timeline container */
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 30px;
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #0d6efd;
+  border-radius: 5px;
+}
+
+/* Timeline item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -10px;
+  background: #0d6efd;
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.timeline-content {
+  background: #f9f9f9;
+  padding: 20px 25px;
+  border-radius: 10px;
+  margin-left: 60px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  background: #e9f2ff;
+  transform: translateY(-4px);
+}
+
+.timeline-content h3 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding-left: 10px;
+  }
+  .timeline-container::before {
+    left: 15px;
+  }
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .timeline-icon {
+    left: 0;
+  }
+  .timeline-content {
+    margin-left: 55px;
+  }
+}
+</style>
+</head>
+<body>
+  <header>
+    <img src="asset/logo.png" alt="Logo">
+    <h1>WELCOME TO </h1>
+    <h1>lowwlyydatabase</h1>
+  </header>
+  <section>
+    <h4 class="section-title">FREELANCE, BISNIS ONLINE‼️</h4>
+    <h4 class="section-title">Simak dibawah ini⬇️</h4>
+    <div class="grid">
+      <div class="card">
+        <h3>Cocok untuk para remaja seperti pelajar, mahasiswa, orang orang yang sedang butuh pekerjaan/ yang sedang bekerja dan mencari kerja sampingan. Bisa juga untuk para IRT dan semua kalangan yang ingin join di bisnis kita🥰</h3>
+            <h4>Income 100rb-1jt per harinya😍</h4>
+            <h4>NO MLM🚫</h4>
+            <h4>NO MONEY GAME🚫</h4>
+            <h4>SUDAH PUNYA SURAT LEGALITAS✅</h4>
+            <h4>PASTINYA 100% HALAL✅</h4><br>
+      </div>
+    </div>
+  </section>
+  <section class="testimoni">
+  <h2>TESTIMONI</h2>
+
+  <div class="testimoni-grid">
+    <div class="item">
+      <img src="asset/testimoni (1).jpg" alt="Testimoni 1">
+    </div>
+    <div class="item">
+      <video controls autoplay muted loop>
+        <source src="asset/testimoni (1).mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="item">
+      <video controls autoplay muted loop>
+        <source src="asset/testimoni (2).mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="item">
+      <img src="asset/testimoni (2).jpg" alt="Testimoni 2">
+    </div>
+  </div>
+
+</section>
+  <section>
+  <h3 class="section-title">KALO UDAH JOIN NANTI DAPET 3 BISNIS UTAMA :</h3>
+    <div class="faq"> 
+      <div class="faq-item"> 
+        <button class="faq-question">1. Bisnis Agen Bisnis ( Database ) </button> 
+        <div class="faq-answer"> 
+          <p> Tugasnya menjual kembali file database yang udah di sediakan. Misal kamu beli di aku promo 50rb 
+            (Sudah termasuk biaya pendaftaran) kamu bisa jual lagi ke orang lain dengan harga bebas.<br></br> 
+            <h4>Contoh :</h4> 
+            <p>Kamu jual harga 100rb/orang, kalo dalam 1 hari bisa jual ke 10 orang hasil nya = 1jt dalam 1 bulan = 30jt 
+              dan seterusnya (harga jual bebas). <br></br>Jadi database itu isi nya semua fasilitas bisnis seperti Grup 
+              Bimbingan, Grup tanya jawab, Grup utama, Bahan promosi, Caption promosi, Tips trik sukses berbisnis dan semua link kontak 
+              upplier (toko) terlengkap dan semuanya sudah disediakan di grup bimbingan. Karna disini itu jual file database 
+              (fasilitas bisnis) secara tidak langsung kita mengajak teman/orang lain untuk join di bisnis ini. Untuk langkah kerjanya 
+              akan dijelaskan secara rinci di grup bimbingan, nantinya juga akan ada tips & trik suskesnya, jadi jangan takut ga bisa, 
+              karena disini full bimbingan + fasilitas lengkap🤩🙌🏻. <br></br> 
+            </p> 
+          </div> 
+        </div> 
+        <div class="faq-item"> 
+          <button class="faq-question">️️️️️️2. Bisnis Olshop</button> 
+          <div class="faq-answer"> 
+            <p>ONLINE SHOP sendiri terbagi menjadi 2, yaitu Reseller & Dropshiper.</p> 
+            <h4>1. Reseller</h4> Reseller itu kamu setok barang terlebih dahulu (keluar modal dulu) baru kamu jual kembali dengan harga 
+            barang di naikin. Nah barangnya itu di ambil lewat link supplier khusus toko yang menyediakan barang. Link suppliernya itu sudah 
+            disediakan dan dibagikan setelah bimbingan.<br></br> 
+            <h4>2. Dropshiper</h4> Dropshiper ini jauh lebih simpel dari reseller karna kita tidak perlu packing ataupun 
+            stok barang. Dropshiper itu sebagai perantara, karna kita mempromosikan produk orang lain dan ketika orang lain
+            beli dikita, kita tinggal beli di tokonya dan jual dengan harga barang yang di naikin 
+            <br></br>Karna dalam database itu salah satunya adalah kontak supplier (kontak toko) otomatis kita bisa buka 
+            toko online (olshop)<br></br> 
+            <h4>Contoh :</h4>Harga baju di toko kontak supplier yang udah di sediakan seharga 10rb, sedangkan di pasar dekat lingkungan mu dengan 
+            kualitas sama dan produk yang sama dengan harga 80rb jadi kamu bisa jual dengan harga 50rb otomatis seluruh pembeli dan pelanggan akan 
+            memilih untuk beli dengan mu🤑 
+            <br></br>Misal dalam 1 hari kamu bisa jual 20pcs dengan keuntungan 30rb maka : 30rb x 20 = 600rb 600rb x 30hari = 18jt 💸 
+            Dan seterusnya begitu.. 
+            <br></br>ini hanya bisnis Olshop belum Database 
+            <br></br>Barang yang kita jual seperti sepatu, tas, baju, peralatan rumah tangga, dompet, daster, jaket, sandal, jam tangan, alat makeup, 
+            seprei, gamis, hijab, mukenah, dll. Intinya lengkap ya kak dengan harga produk murah serta udah di sediakan 100++ link kontak supplier (toko) nya. </div> </div> 
+            <div class="faq-item"> 
+          <button class="faq-question">️️️️️️3. Agen Kuota ( Agen Pulsa )</button> 
+              <div class="faq-answer"> 
+                <p>Bisnis agen kuota adalah usaha menjual kuota internet dan pulsa kepada konsumen, dengan bertindak sebagai perantara antara penyedia layanan (distributor atau server pulsa) dan pengguna akhir. 
+                  Agen kuota mendapatkan keuntungan dari selisih harga jual dan harga beli kuota. Selain pulsa, tersedia juga paket data internet, token listrik, pembayaran tagihan, voucher game, dan dompet digital.</p> 
+                  <br>Itu dia 3 bisnis utamanya, untuk penjelasan lebih rincinya ada di grup bimbingan ya kak. 
+                  <br></br>Oh iya, Disini bukan sistem gajian yahh, tapi penghasilan. Jadi penghasilan mu tergantung penjualan. 
+                  <br></br>Jangan takut kalok gak laku soal nya udah di sediain TIPS TRIK SUKSES nya mulai cara promosi, caption promosi, cara jual, cara jago jualan dll udah ada, tinggal terima beres kerja via hp aja😁 
+                  <br></br>Setelah join nanti akan langsung masuk grup bimbingan dan mendapatkan full bimbingan sampai sukses ya kak. 
+                  <br></br>Hanya berlaku untuk orang-orang yang siap sukses saja yaa. 
+                  <br></br>RAGUMU, RUGIMU. KESEMPATAN TIDAK DATANG 2 KALI😇 
+    </section>
+<section>
+  <h2>JIKA BERMINAT, CHAT ADMIN SEKARANG DENGAN KETIK:</h2>
+  <div class="cta-button">
+    <a href="https://wa.me/6282245564547" class="btn">📩 FIX JOIN</a>
+  </div>
+  <h2 class="section-title">PROMO JOIN UNTUK HARI INI 🔥</h2>
+  <div style="font-size: 1.5rem; margin-bottom: 10px;">
+    <span style="text-decoration: line-through; color: #888;">Rp100.000</span>
+    <span style="color: #d9534f; font-weight: bold;">  Rp50.000 </span>
+  </div>
+  <div style="font-size: 1.2rem; color: #07180b; font-weight: bold;">
+    Diskon 80% untuk 10 orang pertama💥
+  </div>
+</section>
+<section>
+  <h2 class="section-title">🔥 Promo Spesial Berakhir Dalam:</h2>
+  <div id="countdown" style="font-size: 2rem; font-weight: bold; color: #e63946; margin-top: 10px;"></div>
+  <p style="margin-top: 10px; color: #555;">Jangan sampai kelewatan! Harga akan kembali normal ke <del>Rp100.000</del></p>
+</section>
+<section>
+    <h2 class="section-title">FASILITAS</h2>
+    <div class="fasilitas">
+      <img src="asset/fasilitas (1).jpg" alt="Fasilitas 1">
+      <img src="asset/fasilitas (2).jpg" alt="Fasilitas 2">
+    </div>
+  </section>
+  <section>
+  <h2 class="section-title">CEK SURAT LEGALITAS</h2>
+  <p>Untuk memastikan legalitas usaha dan surat resmi kami, silakan cek melalui link berikut:</p>
+  <div class="cta-button">
+    <a href="https://docs.google.com/document/d/1t-6SJB2sdg49XCdYcD_JDvMRekyTNCdI6u9_lvlZkJw/edit?usp=drivesdk" 
+       target="_blank" 
+       class="btn">SURAT LEGALITAS</a>
+  </div>
+</section>
+  <section>
+    <h2 class="section-title">KEUNTUNGAN JOIN</h2>
+    <div class="grid">
+      <div class="card">Cuma modal 1x kamu bisa buka bisnis sendiri dan menjadi pembisnis dengan modal yang kecil</div>
+      <div class="card">Bisa jual pulsa sendiri dirumah, tidak ada target</div>
+      <div class="card">Kamu bisa jual kembali file database (Agen bisnis) lalu mendapatkan penghasilan</div>
+      <div class="card">Kamu bisa buka online shop sendiri dan pastinya link kontak supplier sudah disediakan </div>
+      <div class="card">Bisnis tidak ribet dan mudah dijalankan</div>
+      <div class="card">Bisa langsung balik modal, get sehari 300-1jt (asal konsisten dalam menjalankan bisnis)</div>
+    </div>
+  </section>
+    <section class="payment-section">
+  <h2 class="section-title">METODE PEMBAYARAN</h2>
+  <p>Pilih metode pembayaran yang tersedia di bawah ini:</p>
+
+  <div class="payment-grid">
+    <div class="payment-item" onclick="alert('Nomor ShopeePay : 0822-4556-4547 a/n NA****A I**A A***A')">
+      <i class="fas fa-wallet" style="font-size: 2rem; color: purple;"></i>
+      <p>OVO</p>
+    </div>
+
+    <div class="payment-item" onclick="alert('Nomor ShopeePay : 9015-1477-3297 a/n NA****A I**A A***A')">
+      <i class="fas fa-university" style="font-size: 2rem; color: #0077b6;"></i>
+      <p>SEABANK</p>
+    </div>
+
+    <div class="payment-item" onclick="alert('Nomor ShopeePay : 0822-4556-4547 a/n NA****A I**A A***A')">
+      <i class="fas fa-shopping-bag" style="font-size: 2rem; color: #ee4d2d;"></i>
+      <p>SHOPEEPAY</p>
+    </div>
+
+    <div class="payment-item" onclick="alert('Nomor ShopeePay : 0822-4556-4547 a/n NA****A I**A A***A')">
+      <i class="fas fa-mobile-alt" style="font-size: 2rem; color: #00b14f;"></i>
+      <p>GOPAY</p>
+    </div>
+    <div class="payment-item" onclick="alert('Nomor ShopeePay : 0822-4556-4547 a/n NA****A I**A A***A')">
+      <img src="asset/dana.png" alt="DANA" style="width: 2rem; height: 2rem;">
+      <p>DANA</p>
+    </div>
+    <div class="payment-item" onclick="showQR('asset/qris1.jpg', 'QRIS')">
+      <img src="asset/qris.png" alt="QRIS" style="width: 2rem; height: 2rem;">
+      <p>QRIS</p>
+    </div>
+
+  <!-- Modal -->
+  <div id="qrModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+    background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:20px; border-radius:8px; text-align:center; position:relative;">
+    <span onclick="closeQR()" style="position:absolute; top:10px; right:15px; cursor:pointer; font-weight:bold;">&times;</span>
+    <h3 id="qrTitle"></h3>
+    <img id="qrImage" src="" style="width:200px; height:200px;">
+  </div>
+  </div>
+  </div><br></br>
+  <p>Kirim Bukti Pembayaran ke Admin Via WhatsApp </p>
+  </section>
+  <section class="alasan-section"><br></br>
+  <h2>KENAPA HARUS JOIN ?</h2>
+  <div class="alasan-grid">
+    <div class="alasan-item">
+      <h4>Full Bimbingan</h4>
+      <p>Bimbingan langsung sampai sukses.</p>
+    </div>
+    <div class="alasan-item">
+      <h4>Waktu Fleksibel</h4>
+      <p>Bisa sambil kuliah, kerja, atau ibu rumah tangga.</p>
+    </div>
+    <div class="alasan-item">
+      <h4>Aman & Halal</h4>
+      <p>100% aman dan halal, tidak ada tipu-tipu.</p>
+    </div>
+    <div class="alasan-item">
+      <h4>Tidak Ada Target</h4>
+      <p>Tidak ada tekanan atau target penjualan.</p>
+    </div>
+    <div class="alasan-item">
+      <h4>Tidak Bagi Hasil</h4>
+      <p>Penghasilan 100% milik member.</p>
+    </div>
+    <div class="alasan-item">
+      <h4>No MLM</h4>
+      <p>Bukan sistem MLM, semua murni usaha.</p>
+    </div>
+  </div>
+</section><br></br>
+<section class="cara-join-flow">
+  <h2>CARA JOIN ⬇️ ⬇️</h2>
+
+  <div class="flow-wrapper">
+    <!-- Baris 1 -->
+    <div class="flow-row">
+      <div class="flow-step">
+        <div class="icon"><i class="fab fa-whatsapp"></i></div>
+        <h4>WA</h4>
+        <p>Chat admin melalui DM/WA</p>
+      </div>
+      <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+      <div class="flow-step">
+        <div class="icon"><i class="fas fa-comment-dots"></i></div>
+        <h4>Chat</h4>
+        <p>Ketik 'fix join' lalu kirim ke admin</p>
+      </div>
+    </div>
+
+    <div class="down-arrow"><i class="fas fa-arrow-down"></i></div>
+
+    <!-- Baris 2 -->
+    <div class="flow-row reverse">
+      <div class="flow-step">
+        <div class="icon"><i class="fas fa-file-signature"></i></div>
+        <h4>Form</h4>
+        <p>Mengisi form member baru</p>
+      </div>
+      <div class="arrow"><i class="fas fa-arrow-left"></i></div>
+      <div class="flow-step">
+        <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
+        <h4>Bayar</h4>
+        <p>Lakukan pembayaran</p>
+      </div>
+    </div>
+
+    <div class="down-arrow"><i class="fas fa-arrow-down"></i></div>
+
+    <!-- Baris 3 -->
+    <div class="flow-row">
+      <div class="flow-step">
+        <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <h4>Class</h4>
+        <p>Mengikuti class bimbingan</p>
+      </div>
+      <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+      <div class="flow-step">
+        <div class="icon"><i class="fas fa-users"></i></div>
+        <h4>Grup</h4>
+        <p>Masuk semua fasilitas grup</p>
+      </div>
+    </div>
+  </div>
+</section><br></br>
+<section class="wajib-diper">
+  <h2>Wajib Diperhatikan ⚠️</h2>
+  <div class="wajib-grid">
+    <div class="mbuh">
+      <div class="con">❌</div>
+      <p>Bukan judi online.</p>
+    </div>
+    <div class="mbuh">
+      <div class="con">❌</div>
+      <p>Bukan money game / MLM.</p>
+    </div>
+    <div class="mbuh">
+      <div class="con">❌</div>
+      <p>Bukan bisnis abal-abal.</p>
+    </div>
+    <div class="mbuh">
+      <div class="con">❌</div>
+      <p>Tanpa target penjualan.</p>
+    </div>
+    <div class="mbuh">
+      <div class="con">❌</div>
+      <p>Tanpa KTP.</p>
+    </div>
+    <div class="mbuh">
+      <div class="con">❌</div>
+      <p>Tanpa bagi hasil.</p>
+    </div>
+    <div class="mbuh">
+      <div class="con">❌</div>
+      <p>Tanpa tuntutan waktu.</p>
+    </div>
+    <div class="mbuh">
+      <div class="con">❌</div>
+      <p>Tanpa install aplikasi.</p>
+    </div>
+  </div>
+</section>
+<section class="faq-timeline">
+  <h2>Pertanyaan yang Sering Diajukan ❓</h2><br></br>
+  <div class="timeline-container">
+
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="fas fa-info-circle"></i></div>
+      <div class="timeline-content">
+        <h3>Apakah Bisnis Ini Aman dan Legal ?</h3>
+        <p>Ya, bisnis ini aman dan legal karena sudah memiliki izin resmi dan mengikuti ketentuan hukum yang berlaku</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="fas fa-hand-holding-usd"></i></div>
+      <div class="timeline-content">
+        <h3>Apakah berbayar?</h3>
+        <p>Ya, ada biaya pendaftaran yang sangat terjangkau dan langsung digunakan untuk fasilitas belajar dan grup support.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="fab fa-whatsapp"></i></div>
+      <div class="timeline-content">
+        <h3>Bagaimana cara join?</h3>
+        <p>Cukup hubungi admin lewat WhatsApp, ketik <strong>“Fix Join”</strong>, lalu ikuti panduan pembayaran yang diberikan.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="fas fa-user-graduate"></i></div>
+      <div class="timeline-content">
+        <h3>Apakah bisa untuk pemula?</h3>
+        <p>Tentu! Semua materi dirancang dari dasar hingga mahir, jadi cocok untuk pemula tanpa pengalaman sekalipun.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="fas fa-clock"></i></div>
+      <div class="timeline-content">
+        <h3>Apakah ada batas waktu belajar?</h3>
+        <p>Tidak ada batas waktu, kamu bisa belajar kapan pun sesuai kesibukanmu — tanpa tekanan dan tanpa target.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="join-section">
+  <h2 class="section-title">Siap Gabung dan Mulai Bisnis Sekarang?</h2>
+  
+  <p class="intro">
+    <strong>Sudah membaca penjelasan bisnisnya?</strong><br>
+    Jika iya, apakah kakak siap <strong>JOIN</strong> dan menyelesaikan biaya administrasi <strong>(1x seumur hidup)</strong>?
+  </p>
+
+  <div class="cta-box">
+    <p><strong>Jika berminat, chat admin sekarang dengan mengetik:</strong></p><br></br>
+    <a href="https://wa.me/6282245564547?text=FIX%20JOIN" target="_blank" 
+    class="btn-join">📩 FIX JOIN</a>
+  </div>
+</section>
+<script>
+function showQR(imgSrc, title){
+  document.getElementById('qrImage').src = imgSrc;
+  document.getElementById('qrTitle').innerText = title;
+  document.getElementById('qrModal').style.display = 'flex';
+}
+
+function closeQR(){
+  document.getElementById('qrModal').style.display = 'none';
+}
+</script>
+</section>
+
+<section >
+  <a href="https://wa.me/6282245564547" 
+   target="_blank" 
+   class="wa-button"
+   data-tooltip="Chat Sekarang!">
+   <i class="fab fa-whatsapp"></i> 
+</a>
+</section>
+  <script>
+  let currentIndex = 0;
+  const slides = document.querySelector('.slides');
+  const totalSlides = slides.children.length;
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+     slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }, 1100); // ganti gambar setiap 3 detik
+</script>
+
+<script>
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      item.classList.toggle('active');
+      faqItems.forEach(other => {
+        if (other !== item) {
+          other.classList.remove('active');
+        }
+      });
+    });
+  });
+</script>
+<script>
+  const targetDate = new Date();
+  targetDate.setDate(targetDate.getDate() + 1); // Atur promo berakhir 2 hari dari sekarang
+
+  const countdown = document.getElementById("countdown");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      countdown.textContent = "Promo telah berakhir!";
+      countdown.style.color = "#999";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hrs = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+
+    countdown.textContent = `${days} hari ${hrs} jam ${mins} menit ${secs} detik`;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
+</body>
+</html>
+
